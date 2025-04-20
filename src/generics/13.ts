@@ -11,7 +11,24 @@ type ProductData = {
   stock: number;
 };
 
-// Your task:
-// - Define a type ProductPreview using Pick.
-// - Write a function getPreviewCards that returns an array of ProductPreview objects.
+const laptop: ProductData = {
+  id: 10,
+  name: "Acer Nitro",
+  category: "laptop",
+  price: 1000,
+  description: "Gaming and powerful laptop",
+  stock: 2,
+};
+
+type ProductPreview = Pick<ProductData, "name" | "category" | "price">;
+
+const getPreviewCards = (data: ProductData): ProductPreview => {
+  return {
+    name: data.name,
+    category: data.category,
+    price: data.price,
+  };
+};
+
+console.log(getPreviewCards(laptop));
 //TODO: ========================================== /Additional Practice 13 ==========================================
